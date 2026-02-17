@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching Methods – Fourth Year English</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --cream: #faf8f3;
+  --gold: #c9a84c;
+  --gold-light: #e8d08a;
+  --teal: #2a7f7f;
+  --teal-light: #3da9a9;
+  --rose: #b5485a;
+  --sage: #5a7a5a;
+  --slate: #3d5a6e;
+  --lavender: #6b5b9e;
+  --rust: #b05a2a;
+  --emerald: #2a7a5a;
+  --navy: #1e3a5f;
+  --text: #2a2a2a;
+  --muted: #6a6a7a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 70% 60% at 20% 30%, rgba(201,168,76,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(42,127,127,0.1) 0%, transparent 60%);
+}
+
+.hero-badge {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 6px 20px;
+  border-radius: 40px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 900;
+  line-height: 0.95;
+  text-align: center;
+  color: var(--cream);
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(250,248,243,0.6);
+  text-align: center;
+  margin-top: 28px;
+  max-width: 560px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 40px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-intro {
+  max-width: 680px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(250,248,243,0.75);
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+}
+
+/* grid decoration */
+.grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── METHODS GRID ── */
+.methods-section {
+  padding: 80px 24px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink);
+  margin-bottom: 60px;
+  line-height: 1.2;
+}
+
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.method-card {
+  position: relative;
+  background: white;
+  border-radius: 4px;
+  padding: 36px 28px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.method-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--card-color);
+  transition: width 0.3s ease;
+}
+
+.method-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.method-card:hover::before {
+  width: 8px;
+}
+
+.card-number {
+  font-size: 64px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  color: var(--card-color);
+  opacity: 0.12;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.card-abbr {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--card-color);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--card-color);
+  transition: gap 0.2s ease;
+}
+
+.method-card:hover .card-arrow {
+  gap: 12px;
+}
+
+/* ── METHOD PAGE ── */
+.method-page {
+  display: none;
+  min-height: 100vh;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.method-hero {
+  background: var(--page-color);
+  padding: 60px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.method-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.method-hero::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 160px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.06);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.back-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 18px;
+  border-radius: 40px;
+  margin-bottom: 40px;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.back-btn:hover { background: rgba(255,255,255,0.2); }
+
+.method-page-abbr {
+  position: relative;
+  z-index: 2;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 10px;
+}
+
+.method-page-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  max-width: 700px;
+}
+
+/* ── CONTENT ── */
+.method-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.content-section {
+  margin-bottom: 48px;
+}
+
+.content-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--page-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-section h2 .icon {
+  width: 28px;
+  height: 28px;
+  background: var(--page-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.content-section p {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #3a3a4a;
+  margin-bottom: 12px;
+}
+
+.principles-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.principles-list li {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #3a3a4a;
+  background: rgba(0,0,0,0.025);
+  padding: 14px 18px;
+  border-radius: 6px;
+  border-left: 3px solid var(--page-color);
+}
+
+.principles-list li .num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--page-color);
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.techniques-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.technique-tag {
+  background: var(--page-color);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.qa-block {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.qa-q {
+  font-weight: 600;
+  color: var(--page-color);
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.qa-a {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #3a3a4a;
+}
+
+/* ── QUIZ ── */
+.quiz-section {
+  background: var(--ink);
+  padding: 64px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%);
+}
+
+.quiz-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.quiz-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.quiz-header p {
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.quiz-question-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.q-number {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.q-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+  padding: 14px 20px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14.5px;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+}
+
+.option-btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateX(4px);
+}
+
+.option-btn.correct {
+  background: rgba(42,127,90,0.25);
+  border-color: #2a7f5a;
+  color: #7ad4a8;
+}
+
+.option-btn.wrong {
+  background: rgba(181,72,90,0.25);
+  border-color: var(--rose);
+  color: #e89aa6;
+}
+
+.option-btn:disabled { cursor: default; }
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: none;
+}
+
+.feedback.show { display: block; }
+.feedback.good { background: rgba(42,127,90,0.2); color: #7ad4a8; }
+.feedback.bad { background: rgba(181,72,90,0.2); color: #e89aa6; }
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.quiz-score-display {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+
+.next-btn {
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  display: none;
+}
+
+.next-btn:hover { opacity: 0.88; transform: scale(1.02); }
+.next-btn.visible { display: inline-block; }
+
+.quiz-result {
+  text-align: center;
+  padding: 20px;
+  display: none;
+}
+
+.result-emoji { font-size: 64px; margin-bottom: 16px; }
+
+.result-score {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.result-label {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+.restart-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+}
+
+.restart-btn:hover { background: rgba(255,255,255,0.1); }
+
+/* ── BACK FOOTER ── */
+.page-footer {
+  padding: 40px 24px;
+  text-align: center;
+  background: #f0ede6;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s;
+}
+
+.home-btn:hover { opacity: 0.8; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .methods-grid { grid-template-columns: 1fr; }
+  .method-page-title { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div id="home-page">
+
+<section class="hero">
+  <div class="grid-lines"></div>
+  <div class="hero-badge">Fourth Year · English Department</div>
+  <h1>Teaching<br><span>Methods</span></h1>
+  <p class="hero-sub">A comprehensive study guide for the Specialized Teaching Methods course — prepared by Asst. Prof. Muntaha Sabbar</p>
+  <div class="hero-divider"></div>
+  <p class="hero-intro">
+    Explore eight foundational language teaching methods — from Grammar Translation to Multiple Intelligences. Each method includes full summaries, key principles, and a 15-question quiz to test your understanding.
+  </p>
+</section>
+
+<section class="methods-section">
+  <p class="section-label">Course Contents</p>
+  <h2 class="section-title">Eight Teaching Methods</h2>
+
+  <div class="methods-grid" id="methods-grid">
+    <!-- cards injected by JS -->
+  </div>
+</section>
+
+</div>
+
+<!-- ═══════════════ METHOD PAGE (template) ═══════════════ -->
+<div id="method-page" class="method-page"></div>
+
+<script>
+/* ════════════════════════════════════════════
+   DATA
+════════════════════════════════════════════ */
+const methods = [
+  {
+    id: 'gtm',
+    abbr: 'GTM',
+    name: 'Grammar Translation Method',
+    color: '#6b5b9e',
+    tagline: 'Reading literature through grammar mastery and precise translation.',
+    intro: 'One of the oldest language teaching methods, originally used for Classical Latin and Greek. It focuses on reading and writing literary texts rather than spoken communication.',
+    background: 'The Grammar-Translation Method (GTM) is not new — it was first used to teach classical languages (Latin, Greek) and was known as the Classical Method. In the early 20th century, it was adopted for modern languages to help students read foreign literature and improve their understanding of grammar.',
+    goals: 'The fundamental purpose is to enable students to read and appreciate literature written in the target language. Students gain mental discipline through grammar study, and success is measured by the ability to translate accurately between languages.',
+    teacher_role: 'The teacher is the authority in the classroom. Students do as the teacher says to learn what the teacher knows. Interaction is mostly one-way — from teacher to students.',
+    student_role: 'Students follow the teacher\'s direction closely. There is little student initiative or student-to-student interaction.',
+    characteristics: 'Students are taught to translate from one language to another, focusing on grammar rules and literary texts. Grammar is taught deductively — rules are given first, then students apply them. Students memorize vocabulary and verb conjugations.',
+    language_view: 'Literary language is considered superior to spoken language. Culture is viewed as consisting of literature and the fine arts.',
+    skills: 'Reading and Writing are primary. Speaking and Listening receive very little attention. Pronunciation is largely ignored.',
+    native_lang: 'Translation into the native language is the main way to convey meaning. The native language is used extensively in class.',
+    evaluation: 'Written tests requiring translation (native ↔ target language), grammar rule application, and questions about target culture.',
+    errors: 'Getting the correct answer is essential. When students make errors, the teacher provides the correct answer directly.',
+    principles: [
+      'The main purpose of language learning is to read literature in the target language.',
+      'An important goal is to translate each language into the other accurately.',
+      'Ability to communicate in the target language is NOT a goal.',
+      'Reading and Writing are the primary skills; speaking and listening are minimal.',
+      'The teacher is the authority in the classroom.',
+      'Native language equivalents exist for all target language words.',
+      'Learning is facilitated by noting similarities between native and target language.',
+      'Knowledge of grammar rules is essential for students.',
+      'Deductive grammar application is a key pedagogical technique.',
+      'Language learning provides valuable mental exercise.',
+      'Students must be conscious of grammatical rules at all times.',
+      'Verb conjugations and grammatical paradigms should be memorized.',
+    ],
+    techniques: ['Translation of a Literary Passage', 'Reading Comprehension Questions', 'Antonyms / Synonyms', 'Cognates', 'Deductive Application of Rules', 'Fill-in-the-Blanks Exercise', 'Memorization', 'Use Words in Sentences', 'Composition'],
+    quiz: [
+      { q: 'What is the primary purpose of learning a language according to the GTM?', o: ['To communicate fluently', 'To read literature in the target language', 'To listen to native speakers', 'To develop pronunciation'], a: 1 },
+      { q: 'Which language skills are MOST emphasized in the Grammar-Translation Method?', o: ['Speaking and Listening', 'Reading and Writing', 'Pronunciation and Grammar', 'Listening and Reading'], a: 1 },
+      { q: 'How is grammar taught in the GTM?', o: ['Inductively, through examples', 'Deductively, rules first then examples', 'Through listening drills', 'Through role-plays'], a: 1 },
+      { q: 'What is the role of the teacher in the GTM?', o: ['A facilitator who guides students', 'A neutral observer', 'The authority in the classroom', 'A co-communicator'], a: 2 },
+      { q: 'How is meaning conveyed to students in the GTM?', o: ['Through demonstrations', 'Through body movements', 'Through translation into the native language', 'Through visual aids'], a: 2 },
+      { q: 'What is the GTM\'s view of literary language vs. spoken language?', o: ['Both are equally important', 'Spoken language is superior', 'Literary language is superior', 'Neither is important'], a: 2 },
+      { q: 'Which of the following is a technique used in the GTM?', o: ['Role-play', 'Dialogue memorization', 'Antonyms and Synonyms', 'Dictation'], a: 2 },
+      { q: 'How does the teacher respond to student errors in the GTM?', o: ['Ignores the error and moves on', 'Encourages self-correction', 'Provides the correct answer directly', 'Asks other students to correct it'], a: 2 },
+      { q: 'What is the role of the native language in GTM classrooms?', o: ['Not used at all', 'Used minimally', 'Used extensively for translation', 'Used only for explanations'], a: 2 },
+      { q: 'What kind of evaluation is used in the GTM?', o: ['Oral interviews', 'Written translation tests', 'Portfolio assessment', 'Role-play performance'], a: 1 },
+      { q: 'What was the GTM originally called?', o: ['The Direct Method', 'The Classical Method', 'The Communicative Method', 'The Natural Method'], a: 1 },
+      { q: 'According to the GTM, what provides "good mental exercise"?', o: ['Conversation practice', 'Language learning itself', 'Listening to native speakers', 'Group work'], a: 1 },
+      { q: 'How much attention is paid to pronunciation in the GTM?', o: ['It is the top priority', 'Little to none', 'Moderate attention', 'It is taught first'], a: 1 },
+      { q: 'What is student-to-student interaction like in the GTM?', o: ['Very frequent and encouraged', 'Structured through pair work', 'Minimal to none', 'Done through games'], a: 2 },
+      { q: 'Which of the following best describes the GTM approach to culture?', o: ['Daily life of native speakers', 'Fine arts and literature only', 'Historical events and politics', 'Popular media'], a: 1 },
+    ]
+  },
+  {
+    id: 'dm',
+    abbr: 'D.M.',
+    name: 'Direct Method',
+    color: '#2a7f7f',
+    tagline: 'Target language only — meaning conveyed directly through demonstration.',
+    intro: 'A response to the ineffectiveness of GTM for communication, the Direct Method has one golden rule: NO translation. Meaning is conveyed through demonstrations, visuals, and real objects.',
+    background: 'The Direct Method became popular when it was clear that GTM failed to prepare students for real communication. Its core principle: meaning must be conveyed directly in the target language without resorting to the native language.',
+    goals: 'Students learn how to communicate in the target language by thinking in it. The emphasis shifts from reading literature to using language for real-life communication.',
+    teacher_role: 'The teacher directs activities but acts more like a partner in the learning process. The teacher demonstrates rather than explains or translates.',
+    student_role: 'Less passive than in GTM. Students are encouraged to speak as much as possible and to think in the target language.',
+    characteristics: 'New vocabulary is taught through real objects (realia), pictures, or pantomime — never translation. The syllabus is based on situations or topics (e.g., at the bank, shopping). Grammar is taught inductively. Students practice vocabulary by using new words in full sentences.',
+    language_view: 'Language is primarily spoken. Culture includes daily life, history, and geography of target language speakers — not just fine arts.',
+    skills: 'Oral communication is primary. All four skills are practiced from the start. Pronunciation is emphasized from the beginning.',
+    native_lang: 'The native language should NOT be used in the classroom at all.',
+    evaluation: 'Students are asked to use the language (oral interviews, written paragraphs), not just demonstrate knowledge about it.',
+    errors: 'The teacher tries to get students to self-correct using various techniques.',
+    principles: [
+      'Reading in the target language is taught from the beginning through speaking practice.',
+      'Real objects and pictures help students understand meaning directly.',
+      'The native language is NEVER used in the classroom.',
+      'The teacher demonstrates, never explains or translates.',
+      'Students should learn to think in the target language as soon as possible.',
+      'The purpose of language learning is communication.',
+      'Pronunciation is worked on from the very beginning.',
+      'Self-correction facilitates language learning.',
+      'Lessons must include conversational activities in real contexts.',
+      'Grammar is taught inductively — rules are inferred from examples.',
+      'Writing is an important skill developed from the beginning.',
+      'The syllabus is based on situations or topics, not grammar structures.',
+      'Learning a language involves learning how speakers of that language live.',
+    ],
+    techniques: ['Reading Aloud', 'Question and Answer Exercise', 'Getting Students to Self-Correct', 'Conversation Practice', 'Fill-in-the-Blanks Exercise', 'Dictation', 'Map Drawing'],
+    quiz: [
+      { q: 'What is the one fundamental rule of the Direct Method?', o: ['Always speak slowly', 'No translation is allowed', 'Grammar rules must be memorized', 'Only written exercises are used'], a: 1 },
+      { q: 'How is meaning conveyed in the Direct Method?', o: ['Through native language translation', 'Through grammar rules', 'Through demonstrations and visual aids', 'Through memorization of word lists'], a: 2 },
+      { q: 'How is grammar taught in the Direct Method?', o: ['Deductively — rules first', 'Through translation exercises', 'Inductively — rules inferred from examples', 'Through memorization only'], a: 2 },
+      { q: 'What does the Direct Method syllabus focus on?', o: ['Linguistic structures and grammar patterns', 'Situations and topics from real life', 'Literary texts and translation', 'Phonetics and pronunciation rules'], a: 1 },
+      { q: 'What is the role of the native language in the Direct Method?', o: ['Used for explanation and clarification', 'Not used at all', 'Used only for homework', 'Used 50% of the time'], a: 1 },
+      { q: 'Which skill is considered PRIMARY in the Direct Method?', o: ['Writing', 'Reading', 'Oral Communication', 'Grammar'], a: 2 },
+      { q: 'What is the teacher\'s role in the Direct Method?', o: ['Strict authority figure', 'A partner who demonstrates and guides', 'A silent observer', 'A grammar expert'], a: 1 },
+      { q: 'When does the Direct Method begin working on pronunciation?', o: ['Only in advanced levels', 'From the very beginning', 'After speaking is mastered', 'It does not focus on pronunciation'], a: 1 },
+      { q: 'How should students learn vocabulary in the Direct Method?', o: ['Memorize word lists', 'Use words in full sentences', 'Translate words into native language', 'Study roots and prefixes'], a: 1 },
+      { q: 'What happens when students make errors in the Direct Method?', o: ['Errors are ignored completely', 'The teacher gives the correct answer', 'Teacher encourages self-correction', 'Errors are marked in writing'], a: 2 },
+      { q: 'What does the Direct Method say about how culture is viewed?', o: ['Culture = fine arts only', 'Culture = history of the target country only', 'Culture = daily life, geography, and lifestyle of native speakers', 'Culture is not part of language learning'], a: 2 },
+      { q: 'Which of these is a Direct Method technique?', o: ['Translation of a literary passage', 'Dialogue memorization drills', 'Map Drawing', 'Grammar paradigm memorization'], a: 2 },
+      { q: 'How is student-teacher interaction described in the Direct Method?', o: ['One-way: teacher to students only', 'Two-way: both directions', 'No interaction', 'Only written interactions'], a: 1 },
+      { q: 'What type of reading material is used in the Direct Method?', o: ['Classical literature in translation', 'Target language texts on everyday topics', 'Native language newspapers', 'Grammar textbooks'], a: 1 },
+      { q: 'What belief about language underpins the Direct Method?', o: ['Language is primarily written', 'Language is a mental exercise', 'Language is primarily spoken and social', 'Language is best learned through rules'], a: 2 },
+    ]
+  },
+  {
+    id: 'alm',
+    abbr: 'A.L.M.',
+    name: 'Audio-Lingual Method',
+    color: '#b5485a',
+    tagline: 'Habit formation through drilling, repetition, and pattern practice.',
+    intro: 'Rooted in structural linguistics and behavioral psychology, the Audio-Lingual Method drills students in grammatical patterns. Also called the "Michigan Method," it treats language learning as habit formation.',
+    background: 'Developed with Charles Fries at the University of Michigan in 1945 and later influenced by Skinner\'s behavioral psychology (1957). The idea: overcome native language habits through conditioning, shaping, and reinforcement.',
+    goals: 'Students should be able to use the target language communicatively by "over-learning" it — responding automatically without stopping to think.',
+    teacher_role: 'Like an orchestra conductor — directing, guiding, and controlling student language behavior. Provides an accurate model for imitation.',
+    student_role: 'Students imitate the teacher\'s model or recordings. They follow directions and respond as accurately and as quickly as possible.',
+    characteristics: 'New vocabulary and grammar are presented through dialogues. Students learn by imitation and repetition. Various drills (repetition, chain, substitution, transformation, Q&A) are used. Grammar is induced from examples — no explicit rules given. Positive reinforcement is central.',
+    language_view: 'Every language has its own unique system (phonological, morphological, syntactic). Daily speech is emphasized, graded by complexity. Culture = everyday behavior and lifestyle of target language speakers.',
+    skills: 'Listening and Speaking receive the most attention (natural order: Listening → Speaking → Reading → Writing). Vocabulary is minimal at first. Pronunciation is taught from the beginning.',
+    native_lang: 'Not used in class. Target language only. Contrastive analysis helps predict areas of interference.',
+    evaluation: 'Discrete-point tests — each question tests one language point at a time (e.g., minimal pairs, verb forms).',
+    errors: 'Errors must be prevented through carefully controlled practice. When they occur, the teacher corrects immediately to prevent bad habit formation.',
+    principles: [
+      'Language forms occur naturally within a context, not in isolation.',
+      'Native language and target language should be kept separate to minimize interference.',
+      'The teacher is a language model — students mimic the teacher for accuracy.',
+      'Language learning is habit formation: more repetition = stronger habits.',
+      'Preventing errors is crucial — errors lead to bad habits and must be corrected immediately.',
+      'The purpose of language learning is communication.',
+      'Parts of speech occupy specific "slots" in sentences; students must learn which slot each part occupies.',
+      'Positive reinforcement helps students develop correct habits.',
+      'Students learn to respond to both verbal and non-verbal stimuli.',
+      'Pattern practice helps students form habits for using sentence patterns.',
+      'Students must "over-learn" — respond automatically without thinking.',
+      'The teacher acts like an orchestra conductor, guiding and controlling students.',
+      'The main objective is acquiring structural patterns; vocabulary comes afterward.',
+      'Language acquisition mirrors native language acquisition — no rule memorization needed.',
+      'The main challenge is overcoming native language habits.',
+      'Natural skill order: Listening → Speaking → Reading → Writing.',
+      'Language and culture are inseparable — culture is daily behavior.',
+    ],
+    techniques: ['Dialogue Memorization', 'Backward Build-up (Expansion)', 'Repetition Drill', 'Chain Drill', 'Single-slot Substitution Drill', 'Multiple-slot Substitution Drill', 'Transformation Drill', 'Question-and-Answer Drill', 'Use of Minimal Pairs', 'Complete the Dialogue', 'Grammar Game'],
+    quiz: [
+      { q: 'What is the theoretical base of the Audio-Lingual Method?', o: ['Cognitivism and Constructivism', 'Structural linguistics and behavioral psychology', 'Communicative competence theory', 'Multiple intelligences theory'], a: 1 },
+      { q: 'Which university is associated with the early development of the ALM?', o: ['Harvard University', 'Oxford University', 'University of Michigan', 'Cambridge University'], a: 2 },
+      { q: 'What is the central metaphor for the teacher in the ALM?', o: ['A counselor', 'An engineer', 'An orchestra conductor', 'A facilitator'], a: 2 },
+      { q: 'What does "over-learning" mean in the Audio-Lingual Method?', o: ['Learning too much vocabulary', 'Responding automatically without stopping to think', 'Memorizing grammar rules thoroughly', 'Studying beyond class hours'], a: 1 },
+      { q: 'What is the natural order of skill presentation in the ALM?', o: ['Reading, Writing, Listening, Speaking', 'Speaking, Listening, Reading, Writing', 'Listening, Speaking, Reading, Writing', 'Writing, Reading, Speaking, Listening'], a: 2 },
+      { q: 'How are new structures and vocabulary typically introduced in the ALM?', o: ['Through written texts', 'Through grammar tables', 'Through dialogues', 'Through visual aids'], a: 2 },
+      { q: 'What is the ALM\'s approach to errors?', o: ['Errors are tolerated as natural', 'Errors must be prevented and immediately corrected', 'Errors are ignored unless serious', 'Students self-correct their errors'], a: 1 },
+      { q: 'What role does positive reinforcement play in the ALM?', o: ['It rewards creativity', 'It helps students develop correct habits', 'It is not used in this method', 'It replaces grammar instruction'], a: 1 },
+      { q: 'What is a "chain drill"?', o: ['Drilling grammar rules in sequence', 'Students ask and answer questions in a chain around the class', 'Memorizing dialogues in pairs', 'Substitution of one element in a sentence'], a: 1 },
+      { q: 'What is the role of the native language in the ALM?', o: ['Used for all explanations', 'Not used — target language only', 'Used 50/50 with the target language', 'Used for homework assignment only'], a: 1 },
+      { q: 'How is grammar taught in the ALM?', o: ['Through explicit rule explanation', 'Deductively, with rules provided first', 'Inductively, inferred from examples', 'It is not taught at all'], a: 2 },
+      { q: 'What type of evaluation does the ALM use?', o: ['Portfolio assessment', 'Communicative tasks', 'Discrete-point tests', 'Oral interviews only'], a: 2 },
+      { q: 'Which of the following is NOT an ALM technique?', o: ['Repetition Drill', 'Transformation Drill', 'Role-play for communication', 'Chain Drill'], a: 2 },
+      { q: 'What is the main challenge of language teaching according to the ALM?', o: ['Motivating students to practice', 'Overcoming native language habits', 'Teaching grammar inductively', 'Creating authentic materials'], a: 1 },
+      { q: 'What does "minimal pairs" practice involve?', o: ['Translating minimal text', 'Distinguishing between similar-sounding words', 'Memorizing very short dialogues', 'Using the fewest words possible'], a: 1 },
+    ]
+  },
+  {
+    id: 'tpr',
+    abbr: 'TPR',
+    name: 'Total Physical Response',
+    color: '#5a7a5a',
+    tagline: 'Language learned through physical movement and commands.',
+    intro: 'Developed by James Asher in the 1960s, TPR is part of the Comprehension Approach. The idea: language learning starts with understanding and ends with production — just like children learning their mother tongue.',
+    background: 'Asher\'s research showed that the fastest, least stressful way to develop understanding is to follow the teacher\'s directions (commands) without translation. Students respond physically before they speak.',
+    goals: 'Students should enjoy learning another language and be able to communicate in it. The emphasis is on listening comprehension before speaking.',
+    teacher_role: 'Initially the director of all student behavior. Later, as students gain confidence, the teacher transitions to guide and observer.',
+    student_role: 'Students imitate the teacher\'s non-verbal model. As readiness grows, they become the command-givers themselves.',
+    characteristics: 'The teacher gives commands, students respond physically. Lessons begin with modeling, then students demonstrate understanding alone. Commands are often humorous and novel. After physical response, students learn to read and write the commands. When ready, students issue their own commands.',
+    language_view: 'The oral modality is primary, just as with native language acquisition. Culture = the lifestyle of native speakers.',
+    skills: 'Vocabulary and grammar structures are emphasized through imperatives. Spoken language over written. Listening comprehension comes first.',
+    native_lang: 'TPR is usually introduced in the native language. After that, the native language is rarely used. Meaning is conveyed through body movement.',
+    evaluation: 'Students are observed responding to commands. No formal testing is described — understanding is shown through physical action.',
+    errors: 'Correction is done in an unobtrusive manner to keep anxiety low.',
+    principles: [
+      'Meaning in the target language can be conveyed through physical actions.',
+      'Students must develop understanding before speaking.',
+      'Students can learn a part of the language rapidly by moving their bodies.',
+      'The imperative (command) is a powerful linguistic device for directing student behavior.',
+      'Students must feel successful — low anxiety facilitates learning.',
+      'Correction should be done unobtrusively to reduce stress.',
+      'Language learning is more effective when it is fun.',
+      'Spoken language should be emphasized over written language.',
+      'Students begin to speak when they are ready — not forced.',
+    ],
+    techniques: ['Teacher Issues Commands', 'Students Perform Actions', 'Role Reversal (students give commands)', 'Reading and Writing Commands', 'Skits and Games', 'Humor in Commands'],
+    quiz: [
+      { q: 'Who developed Total Physical Response (TPR)?', o: ['Caleb Gattegno', 'Charles Fries', 'James Asher', 'Georgi Lozanov'], a: 2 },
+      { q: 'What is the main hypothesis behind TPR?', o: ['Language is best learned through grammar drills', 'Language learning starts with understanding and ends with production', 'Translation is the most effective teaching tool', 'Habit formation is the basis of language learning'], a: 1 },
+      { q: 'What broader approach is TPR part of?', o: ['The Communicative Approach', 'The Comprehension Approach', 'The Audio-Lingual Approach', 'The Silent Way Approach'], a: 1 },
+      { q: 'What linguistic structure is most used in TPR?', o: ['Questions', 'Declarative sentences', 'Imperatives (commands)', 'Relative clauses'], a: 2 },
+      { q: 'What is one of the main reasons TPR was developed?', o: ['To improve reading comprehension', 'To replace all other methods', 'To reduce stress in language learning', 'To teach grammar more explicitly'], a: 2 },
+      { q: 'When do students begin to speak in TPR?', o: ['From the very first class', 'After they have memorized enough vocabulary', 'When they feel ready', 'After a formal test'], a: 2 },
+      { q: 'What is the role of the teacher at the START of a TPR lesson?', o: ['Silent observer', 'Director of all student behavior', 'Co-communicator', 'Counselor'], a: 1 },
+      { q: 'How is the native language used in TPR?', o: ['Used throughout all lessons', 'Used only to introduce TPR initially, then rarely', 'Never used at all', 'Used for all grammar explanations'], a: 1 },
+      { q: 'What happens to student roles as they progress in TPR?', o: ['Students become more passive', 'Students take on the role of command-givers', 'Students begin writing instead of speaking', 'Students work independently without the teacher'], a: 1 },
+      { q: 'What kind of commands are used in TPR classes?', o: ['Only serious, formal commands', 'Often humorous and novel commands', 'Written commands on worksheets', 'Grammar-focused commands only'], a: 1 },
+      { q: 'Which skill is developed FIRST in TPR?', o: ['Speaking', 'Writing', 'Listening and comprehension', 'Reading'], a: 2 },
+      { q: 'How should correction be handled in TPR?', o: ['Loudly and publicly', 'Unobtrusively to maintain low anxiety', 'Not at all — errors are fine', 'Through written marks on student work'], a: 1 },
+      { q: 'What is the primary goal of TPR teachers?', o: ['To teach grammar patterns systematically', 'To have students enjoy learning to communicate in another language', 'To develop writing skills first', 'To prepare students for standardized tests'], a: 1 },
+      { q: 'After students respond to oral commands, what do they learn next?', o: ['They start grammar drills', 'They translate the commands', 'They read and write the commands', 'They begin role-plays immediately'], a: 2 },
+      { q: 'How does TPR view culture?', o: ['Culture = fine arts and literature', 'Culture = the lifestyle of native speakers', 'Culture is not relevant to language learning', 'Culture = history and politics'], a: 1 },
+    ]
+  },
+  {
+    id: 'clt',
+    abbr: 'CLT',
+    name: 'Communicative Language Teaching',
+    color: '#b05a2a',
+    tagline: 'Real communication over form — language as a social tool.',
+    intro: 'CLT emerged in the late 1970s when it became clear that mastering grammar rules alone did not make someone communicatively competent. Knowing WHEN and HOW to say something to WHOM — that is communicative competence.',
+    background: 'A shift from structural approaches: language is fundamentally social. Students need to perform speech functions (inviting, promising, declining) not just recite grammar rules.',
+    goals: 'Enable students to communicate in the target language — mastering forms, meanings, AND functions. Students need to know that one form can serve many functions and vice versa.',
+    teacher_role: 'The teacher is a facilitator who sets up communicative situations, answers questions, monitors performance, and sometimes acts as a co-communicator.',
+    student_role: 'Students are communicators above all. They engage actively in activities designed to develop real communicative ability.',
+    characteristics: 'Almost everything done has a communicative intent. Activities include games, role-plays, and problem-solving. Three features of true communication: Information Gap, Choice, and Feedback. Authentic materials are used. Students often work in small groups.',
+    language_view: 'Language is for communication. Communicative competence = linguistic competence + knowledge of functions + knowledge of social context.',
+    skills: 'Language functions are emphasized. All four skills are integrated. A functional syllabus is typically used.',
+    native_lang: 'Judicious use of the native language is permitted, but the target language should be used as much as possible — even for giving instructions.',
+    evaluation: 'Both accuracy AND fluency are evaluated. The best communicator may not have the most grammatical control.',
+    errors: 'Errors of form are tolerated during fluency activities. The teacher notes errors and returns to them later in accuracy-based activities.',
+    principles: [
+      'Authentic language — as used in real contexts — should be introduced whenever possible.',
+      'Understanding the speaker\'s or writer\'s intentions is part of communicative competence.',
+      'The target language is a vehicle for classroom communication, not just the object of study.',
+      'One function can have many different linguistic forms.',
+      'Students work at the discourse level — learning cohesion and coherence.',
+      'Games have features of real communicative events: purpose, choice, and immediate feedback.',
+      'Students should express their own ideas and opinions.',
+      'Errors are natural outcomes of developing communication skills and are tolerated.',
+      'The teacher establishes situations likely to promote real communication.',
+      'Communicative interaction encourages cooperative relationships.',
+      'Social context gives meaning to utterances.',
+      'Using language forms appropriately is part of communicative competence.',
+      'The teacher acts as facilitator during activities and advisor throughout.',
+      'Speakers choose not only WHAT to say but HOW to say it.',
+      'Grammar and vocabulary follow from function, context, and speaker roles.',
+      'Students develop strategies for understanding authentic language.',
+    ],
+    techniques: ['Authentic Materials', 'Scrambled Sentences', 'Language Games', 'Picture Strip Story', 'Role-Play', 'Information Gap Activities', 'Small Group Work'],
+    quiz: [
+      { q: 'What is "communicative competence"?', o: ['Knowing all the grammar rules', 'Knowing when and how to say what to whom', 'Being able to translate accurately', 'Having a large vocabulary'], a: 1 },
+      { q: 'What are the three features of a truly communicative activity?', o: ['Grammar, vocabulary, and fluency', 'Information gap, choice, and feedback', 'Listening, speaking, and reading', 'Translation, correction, and repetition'], a: 1 },
+      { q: 'What is an "information gap" activity?', o: ['A vocabulary exercise with missing words', 'An activity where one person knows something the other doesn\'t', 'A listening exercise with gaps in a transcript', 'A reading activity with unknown vocabulary'], a: 1 },
+      { q: 'How does CLT view errors during fluency activities?', o: ['Errors must be corrected immediately', 'Errors are tolerated as a natural part of development', 'Errors are never corrected', 'Errors result in point deductions'], a: 1 },
+      { q: 'What is the teacher\'s primary role in CLT?', o: ['Authority and grammar instructor', 'Facilitator who creates communicative situations', 'Silent observer', 'Language model to be imitated'], a: 1 },
+      { q: 'What does CLT emphasize over mastery of language forms?', o: ['Translation accuracy', 'The process of communication', 'Grammar memorization', 'Pronunciation drills'], a: 1 },
+      { q: 'What kind of syllabus does CLT typically use?', o: ['A grammar-based syllabus', 'A translation-based syllabus', 'A functional syllabus', 'A phonetics-based syllabus'], a: 2 },
+      { q: 'What is the role of the native language in CLT?', o: ['Banned completely', 'Used exclusively for grammar explanations', 'Permitted judiciously, but target language preferred', 'Required for all classroom instructions'], a: 2 },
+      { q: 'How does CLT evaluate students?', o: ['Accuracy only', 'Translation tests only', 'Both accuracy and fluency', 'Discrete-point grammar tests'], a: 2 },
+      { q: 'Why does CLT use small group work?', o: ['To reduce the teacher\'s workload', 'To maximize each student\'s communicative practice time', 'To simplify classroom management', 'To teach cooperative grammar rules'], a: 1 },
+      { q: 'What does CLT say about the relationship between language forms and functions?', o: ['One form = one function always', 'One function can have many forms; one form can serve many functions', 'Functions are more important and forms are ignored', 'Forms and functions are unrelated in CLT'], a: 1 },
+      { q: 'What is an example of a CLT technique?', o: ['Backward build-up drill', 'Role-play simulating real communication', 'Grammatical paradigm memorization', 'Silent reading of literary texts'], a: 1 },
+      { q: 'What shift occurred in language teaching in the late 1970s that gave rise to CLT?', o: ['From communication to grammar focus', 'From grammar-centered to communicative approaches', 'From listening to writing emphasis', 'From translation to vocabulary learning'], a: 1 },
+      { q: 'What does CLT say about culture?', o: ['Culture = fine arts only', 'Culture = everyday lifestyle of language users', 'Culture is irrelevant to CLT', 'Culture = grammar and pronunciation rules'], a: 1 },
+      { q: 'Why might a "display question" not be communicative in CLT?', o: ['Because it is too complex for students', 'Because it asks for information the teacher already knows — no real information gap', 'Because it does not involve grammar', 'Because it requires writing rather than speaking'], a: 1 },
+    ]
+  },
+  {
+    id: 'sw',
+    abbr: 'S.W.',
+    name: 'The Silent Way',
+    color: '#1e3a5f',
+    tagline: 'Teacher silence empowers learner independence and self-correction.',
+    intro: 'Developed by Caleb Gattegno in the 1960s, the Silent Way is famous for one unconventional principle: the teacher should remain silent as much as possible, empowering students to take full responsibility for their learning.',
+    background: 'First introduced in Gattegno\'s 1963 book "Teaching Foreign Languages in Schools." The method uses distinctive physical materials — most famously, Cuisenaire rods (colored sticks) — to support meaning-making without translation.',
+    goals: 'Help beginner students gain basic fluency in the target language, ultimately achieving near-native proficiency and good pronunciation. Learner independence is the ultimate aim.',
+    teacher_role: 'Acts as a "technician or engineer" — sets up learning situations but remains a neutral observer. The teacher does not react emotionally to correct or incorrect responses.',
+    student_role: 'Students develop independence and responsibility. They engage in self-correction and cooperative peer learning rather than relying on the teacher.',
+    characteristics: 'Silence is the key tool — it forces students to think and produce language independently. Peer correction is preferred over teacher correction. Pronunciation is a fundamental aspect from day one. The syllabus is structural, with continuous review and recycling. No translation or rote memorization.',
+    language_view: 'Language learning requires creativity and problem-solving. Students use prior knowledge — including their native language — to aid the learning process.',
+    skills: 'Pronunciation is central. Speaking is emphasized. All structures are revisited and recycled continuously.',
+    native_lang: 'Used as a starting point and resource for comparison, but the target language is the focus. Meaning is clarified through rods and color charts, not translation.',
+    evaluation: 'Observation-based — no formal testing. The teacher observes how students perform and learn.',
+    errors: 'Errors are treated as natural experiments. Peer correction and self-correction are central. The teacher uses silence and gestures rather than verbal corrections.',
+    principles: [
+      'Teachers should focus on HOW students learn, not just HOW to teach.',
+      'Imitation and drilling are NOT the primary methods of learning.',
+      'Learning involves trial and error, experimentation, and revising conclusions.',
+      'Learners use prior knowledge (including native language) to aid learning.',
+      'The teacher should NOT interfere with the learning process.',
+    ],
+    techniques: ['Cuisenaire Rods (colored sticks)', 'Sound-Color Charts', 'Word Charts', 'Fidel Charts (phonetic guides)', 'Peer Correction', 'Teacher Silence', 'Gestures and Pointing'],
+    quiz: [
+      { q: 'Who developed the Silent Way?', o: ['James Asher', 'Georgi Lozanov', 'Caleb Gattegno', 'Charles Curran'], a: 2 },
+      { q: 'What is the most distinctive feature of the Silent Way?', o: ['Extensive use of music', 'The teacher remains silent as much as possible', 'Translation into the native language', 'Physical response to commands'], a: 1 },
+      { q: 'What are Cuisenaire rods?', o: ['Musical instruments for language learning', 'Colored sticks used as teaching materials', 'Flashcards with vocabulary words', 'Phonetic alphabet charts'], a: 1 },
+      { q: 'What is the role of the teacher in the Silent Way?', o: ['An authority who corrects all errors verbally', 'A technician/engineer who sets up learning situations', 'A counselor who provides emotional support', 'A co-communicator in classroom activities'], a: 1 },
+      { q: 'How are errors handled in the Silent Way?', o: ['The teacher immediately provides the correct form', 'Errors are ignored completely', 'Peer correction and self-correction are encouraged', 'Errors are marked and returned in writing'], a: 2 },
+      { q: 'What aspect of language does the Silent Way emphasize most from the start?', o: ['Grammar rules', 'Pronunciation', 'Writing skills', 'Vocabulary memorization'], a: 1 },
+      { q: 'What is a Sound-Color Chart?', o: ['A poster of vocabulary organized by color category', 'A chart representing sounds with colors for phonics learning', 'A diagram of the vocal tract', 'A schedule of classroom activities'], a: 1 },
+      { q: 'What does the Silent Way think about imitation and drilling?', o: ['They are the most important learning strategies', 'They are the primary path to fluency', 'They are NOT the primary methods of learning', 'They should happen every lesson'], a: 2 },
+      { q: 'What type of syllabus does the Silent Way use?', o: ['Functional/communicative syllabus', 'Situational syllabus', 'Structural syllabus with recycling', 'Task-based syllabus'], a: 2 },
+      { q: 'How does the Silent Way view the role of the learner\'s native language?', o: ['It is never used or referenced', 'It is used as a starting point and resource for the learner', 'It is used by the teacher for all explanations', 'It is banned from the classroom entirely'], a: 1 },
+      { q: 'What is one advantage of the Silent Way?', o: ['It is very easy to implement for all teachers', 'It promotes cooperative learning and learner independence', 'It relies heavily on grammar translation', 'It requires no special materials'], a: 1 },
+      { q: 'What is one criticism/disadvantage of the Silent Way?', o: ['It focuses too much on communication', 'Some learners struggle due to lack of direct explanation', 'It ignores pronunciation completely', 'It uses too many traditional drills'], a: 1 },
+      { q: 'How is evaluation done in the Silent Way?', o: ['Formal written exams at the end of each unit', 'Observation of student performance — no formal tests', 'Weekly grammar tests', 'Oral translation exercises'], a: 1 },
+      { q: 'What does the Silent Way believe about trial and error in learning?', o: ['Errors are harmful and must be prevented', 'Trial and error, experimentation, and revising conclusions are natural to learning', 'Students should not make errors until advanced stages', 'Only the teacher can determine what is an error'], a: 1 },
+      { q: 'The Silent Way was not widely adopted primarily because:', o: ['It was too expensive to implement', 'It requires teachers to avoid using the Communicative Approach', 'Students found it too easy', 'It required too much technology'], a: 1 },
+    ]
+  },
+  {
+    id: 'dsp',
+    abbr: 'D.S.P.',
+    name: 'Desuggestopedia',
+    color: '#c9a84c',
+    tagline: 'Remove psychological barriers — learn through relaxation and the arts.',
+    intro: 'Developed by Georgi Lozanov, Desuggestopedia (originally Suggestopedia) is an affective-humanistic approach. The theory: students have psychological barriers that limit their learning capacity. Remove those barriers, and language is absorbed naturally.',
+    background: 'Lozanov believed that students unconsciously set mental limits on how much they can learn. By creating a relaxed, music-rich environment and using positive suggestion, these barriers are removed, enabling accelerated, stress-free learning.',
+    goals: 'Help students use another language for everyday communication by reducing psychological barriers and encouraging faster language acquisition through a relaxed, artistic environment.',
+    teacher_role: 'The teacher is the authority — students trust and follow the teacher\'s guidance. The teacher manages the atmosphere, music, and suggestion techniques.',
+    student_role: 'Students relax and engage with the language playfully. They follow the teacher\'s guidance and interact throughout the lesson.',
+    characteristics: 'Peripheral learning: Grammar posters on walls for subconscious absorption. Two "concert phases" for presenting dialogues: (1) Receptive Phase — teacher reads with musical accompaniment; (2) Active Phase — students listen calmly at normal speed. Students are encouraged to engage playfully with the language.',
+    language_view: 'Language is the first plane of communication. Cultural factors are the second plane. Fine arts (music, drama, visual arts) enhance language learning.',
+    skills: 'Speaking communicatively is emphasized. Vocabulary is prioritized over explicit grammar. Reading dialogues and creative writing are also used.',
+    native_lang: 'Used for dialogue translation. Teachers may use it occasionally for clarification.',
+    evaluation: 'Based on normal classroom performance — no formal tests.',
+    errors: 'Errors are corrected GENTLY to maintain the relaxed, positive atmosphere.',
+    principles: [
+      'Students set up psychological barriers to learning that must be "desuggest​ed" (removed).',
+      'A relaxed, comfortable environment enhances natural language acquisition.',
+      'Music, drama, and the arts help students absorb language subconsciously.',
+      'Peripheral learning: information on posters is absorbed without conscious effort.',
+      'Positive suggestion — both direct and indirect — boosts student confidence.',
+      'Students adopt new identities to encourage self-expression and immersion.',
+      'Cultural context and everyday scenarios support authentic communication.',
+    ],
+    techniques: ['Classroom Set-up with Posters (Peripheral Learning)', 'Positive Suggestion (Direct & Indirect)', 'Choose a New Identity', 'Role Play', 'Primary Activation (reading in different emotional tones)', 'Creative Adaptation (singing, dancing, dramatizations, games)', 'Two Concert Phases for dialogue presentation'],
+    quiz: [
+      { q: 'Who developed Desuggestopedia?', o: ['James Asher', 'Caleb Gattegno', 'Georgi Lozanov', 'Charles Curran'], a: 2 },
+      { q: 'What is the core belief behind Desuggestopedia?', o: ['Students learn best through physical movement', 'Students set up psychological barriers that limit learning — these must be removed', 'Students must memorize grammar before speaking', 'Silent environments promote the best language learning'], a: 1 },
+      { q: 'What type of approach is Desuggestopedia described as?', o: ['Behaviorist approach', 'Structural approach', 'Affective-humanistic approach', 'Cognitive approach'], a: 2 },
+      { q: 'What is "peripheral learning" in Desuggestopedia?', o: ['Learning that happens outside the classroom', 'Absorbing information from posters on classroom walls subconsciously', 'A peripheral skill like pronunciation', 'Learning through gestures and body language'], a: 1 },
+      { q: 'What happens during the "Receptive Phase" (First Concert)?', o: ['Students practice speaking in pairs', 'The teacher reads dialogue with rhythm matching background music while students follow along', 'Students memorize grammar rules silently', 'Students watch a film in the target language'], a: 1 },
+      { q: 'What is the purpose of having students "choose a new identity" in Desuggestopedia?', o: ['To practice grammar in different contexts', 'To encourage self-expression and deeper immersion in the language', 'To memorize vocabulary faster', 'To simulate job interviews'], a: 1 },
+      { q: 'What is the difference between direct and indirect suggestion?', o: ['Direct uses visuals; indirect uses music', 'Direct suggestion tells students they will succeed; indirect suggestion works on the subconscious', 'Direct suggestion is verbal; indirect is written', 'There is no difference — they are the same technique'], a: 1 },
+      { q: 'Which of the following is a key feature of the classroom in Desuggestopedia?', o: ['Bare walls with no distractions', 'Posters with grammatical information on the walls', 'Students sitting in rows facing the board', 'No music or arts integration'], a: 1 },
+      { q: 'How are errors treated in Desuggestopedia?', o: ['Ignored completely to boost confidence', 'Corrected immediately and explicitly', 'Corrected gently to maintain the positive atmosphere', 'Students are expected to self-correct only'], a: 2 },
+      { q: 'What is the role of music in Desuggestopedia?', o: ['It is used as background noise only', 'It is integrated to create a relaxed environment and aid subconscious learning', 'It replaces verbal instruction', 'It is used only during tests'], a: 1 },
+      { q: 'What is the "Active Phase" (Second Concert) in Desuggestopedia?', o: ['Students physically act out the dialogue', 'Students listen calmly while the teacher reads at a normal speed', 'Students write a summary of the dialogue', 'Students translate the dialogue into their native language'], a: 1 },
+      { q: 'What homework is typically assigned after the two concert phases?', o: ['Write a grammar essay', 'Read the dialogue before sleep and again in the morning', 'Memorize 50 vocabulary words', 'Record yourself speaking the dialogue'], a: 1 },
+      { q: 'How is evaluation accomplished in Desuggestopedia?', o: ['Formal written exams', 'Standardized grammar tests', 'Based on normal classroom performance — no formal tests', 'Weekly oral tests'], a: 2 },
+      { q: 'What language skill is most emphasized in Desuggestopedia?', o: ['Writing academic essays', 'Speaking communicatively', 'Discrete grammar accuracy', 'Translation accuracy'], a: 1 },
+      { q: 'What is "Primary Activation" in Desuggestopedia?', o: ['Introducing new vocabulary for the first time', 'Students re-read dialogues in different emotional tones (sad, angry, cheerful)', 'The teacher\'s first reading of the dialogue', 'Testing comprehension immediately after listening'], a: 1 },
+    ]
+  },
+  {
+    id: 'cll',
+    abbr: 'C.L.L.',
+    name: 'Community Language Learning',
+    color: '#3d5a6e',
+    tagline: 'The whole person — counselor and community in language learning.',
+    intro: 'Led by Charles A. Curran, Community Language Learning (CLL) treats language learners as whole human beings — considering intellect, feelings, physical reactions, and desires to learn. The teacher is a "counselor" who supports and guides without imposing.',
+    background: 'Curran found that adults often feel threatened by new learning situations. The method draws from counseling psychology — teachers act as knowledgeable, empathetic counselors who help students overcome the fear of learning.',
+    goals: 'Students learn to use the target language communicatively while feeling secure and supported throughout the process.',
+    teacher_role: 'The teacher is a "counselor language teacher" — supportive, understanding, and empathetic. Helps students overcome anxiety and negative feelings that block learning.',
+    student_role: 'The learner is gradually independent of the teacher. Moves through five stages — from total dependence to full independence and fluency.',
+    characteristics: 'Students have conversations in their native language. The teacher translates in chunks into the target language. Students record these conversations. Transcriptions are made and used as a basis for future activities. Focuses on nondefensive learning through SAARRD: Security, Aggression (assertion), Attention, Reflection, Retention, Discrimination.',
+    language_view: 'Language is for communication. Culture is an integral part of language learning.',
+    skills: 'Understanding and Speaking are primary, reinforced through Reading and Writing. Pronunciation patterns, grammar points, and vocabulary are addressed.',
+    native_lang: 'Used initially to provide security. It bridges the gap from familiar to unfamiliar, allowing students to combine target language words in new sentences.',
+    evaluation: 'An integration test rather than a discrete-point test (unlike the ALM).',
+    errors: 'The teacher repeats correctly what the student said incorrectly — without drawing attention to the error itself.',
+    principles: [
+      'Learning involves the whole person: intellect, feelings, physical reactions, instincts, and the desire to learn.',
+      'Adults often feel threatened by new learning — teachers must be empathetic counselors.',
+      'SAARRD: Security, Aggression, Attention, Reflection, Retention, Discrimination are elements of nondefensive learning.',
+      'Students should not feel competitive; there is a spirit of cooperation.',
+      'The teacher understands student feelings and helps overcome negative emotions that block learning.',
+      'Language is for communication; culture is integral to language learning.',
+      'The native language provides security and bridges familiar to unfamiliar.',
+      'Students can learn from peer interaction as well as from the teacher.',
+    ],
+    techniques: ['Recording Student Conversations', 'Transcription (basis for future activities)', 'Reflective Listening (students listen to recordings of themselves)', 'Human Computer (teacher repeats clearly for student self-correction)', 'Small Group Tasks', 'Community Building Activities'],
+    quiz: [
+      { q: 'Who developed Community Language Learning (CLL)?', o: ['James Asher', 'Georgi Lozanov', 'Caleb Gattegno', 'Charles A. Curran'], a: 3 },
+      { q: 'What does SAARRD stand for in CLL?', o: ['Speed, Accuracy, Attention, Repetition, Rhythm, Direction', 'Security, Aggression, Attention, Reflection, Retention, Discrimination', 'Structure, Assessment, Activity, Reading, Revision, Dialogue', 'Speaking, Answering, Analyzing, Reporting, Recording, Discussion'], a: 1 },
+      { q: 'What does "whole-person learning" mean in CLL?', o: ['Students learn all four language skills equally', 'The teacher considers intellect, feelings, physical reactions, and the desire to learn', 'Students learn independently without a teacher', 'The class uses all available resources'], a: 1 },
+      { q: 'What is the role of the teacher in CLL?', o: ['An authority who controls all interaction', 'A counselor who offers support and empathy', 'A silent observer who never speaks', 'A co-communicator with equal student status'], a: 1 },
+      { q: 'Why did Curran study adult learning?', o: ['Adults have better memory than children', 'Adults feel threatened by new learning situations', 'Adults learn faster with grammar rules', 'Adults prefer written over spoken language'], a: 1 },
+      { q: 'How does a CLL lesson typically begin?', o: ['Students listen to a recorded dialogue', 'Students have a conversation in their native language while the teacher translates it', 'The teacher gives a grammar explanation', 'Students memorize vocabulary lists'], a: 1 },
+      { q: 'What is the purpose of recording student conversations in CLL?', o: ['To create formal test material', 'To allow students to hear and learn from their own language use', 'To report progress to administrators', 'To replace written exercises'], a: 1 },
+      { q: 'What type of evaluation does CLL use?', o: ['Discrete-point tests', 'An integration test', 'Multiple choice grammar exams', 'No evaluation at all'], a: 1 },
+      { q: 'What is the "Human Computer" technique in CLL?', o: ['Using software for language drills', 'The teacher consistently repeats words clearly for students to imitate and self-correct', 'A student who acts as a dictionary', 'An online translation tool'], a: 1 },
+      { q: 'How does the teacher handle student errors in CLL?', o: ['Immediately and explicitly corrects them', 'Ignores errors to boost fluency', 'Repeats correctly what the student said incorrectly without calling attention to it', 'Asks other students to correct errors'], a: 2 },
+      { q: 'What is "reflective listening" in CLL?', o: ['The teacher reflects on student errors after class', 'Students listen to recordings of themselves in the target language to hear their own progress', 'Students reflect silently before speaking', 'A technique for developing listening comprehension'], a: 1 },
+      { q: 'What is the spirit of the classroom in CLL?', o: ['Competition to motivate students', 'Cooperation, not competition', 'Individual work and independence above all', 'Silent individual reflection'], a: 1 },
+      { q: 'What is the role of the native language in CLL?', o: ['Used 100% of the time', 'Banned from the classroom completely', 'Provides initial security and bridges from familiar to unfamiliar', 'Used only for writing activities'], a: 2 },
+      { q: 'CLL focuses primarily on which skills?', o: ['Reading and Writing', 'Translation and Grammar', 'Understanding and Speaking (reinforced through Reading and Writing)', 'Listening and Pronunciation only'], a: 2 },
+      { q: 'What does Curran mean by "counselor" in CLL?', o: ['A psychologist who treats mental disorders', 'Someone trained in psychology to assess students', 'Someone skillful in understanding the struggles students face in learning a new language', 'A grammar expert who advises on language rules'], a: 2 },
+    ]
+  },
+];
+
+/* ════════════════════════════════════════════
+   BUILD HOME GRID
+════════════════════════════════════════════ */
+const grid = document.getElementById('methods-grid');
+methods.forEach((m, i) => {
+  const a = document.createElement('a');
+  a.href = '#';
+  a.className = 'method-card';
+  a.style.setProperty('--card-color', m.color);
+  a.innerHTML = `
+    <span class="card-number">${i+1}</span>
+    <p class="card-abbr">${m.abbr}</p>
+    <h3 class="card-title">${m.name}</h3>
+    <p class="card-desc">${m.tagline}</p>
+    <span class="card-arrow">Explore →</span>
+  `;
+  a.addEventListener('click', e => { e.preventDefault(); openMethod(m); });
+  grid.appendChild(a);
+});
+
+/* ════════════════════════════════════════════
+   RENDER METHOD PAGE
+════════════════════════════════════════════ */
+function openMethod(m) {
+  const page = document.getElementById('method-page');
+  const qData = buildQuiz(m);
+
+  page.style.setProperty('--page-color', m.color);
+
+  page.innerHTML = `
+  <div class="method-hero" data-title="${m.abbr}">
+    <div style="max-width:860px;margin:0 auto;position:relative;z-index:2;padding:0 24px;">
+      <div class="back-btn" onclick="closePage()">← All Methods</div>
+      <p class="method-page-abbr">${m.abbr}</p>
+      <h1 class="method-page-title">${m.name}</h1>
+    </div>
+  </div>
+
+  <div class="method-content">
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">📖</span> Introduction</h2>
+      <p>${m.background}</p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">🎯</span> Goals</h2>
+      <p>${m.goals}</p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">👩‍🏫</span> Roles: Teacher & Student</h2>
+      <p><strong>Teacher:</strong> ${m.teacher_role}</p>
+      <p><strong>Student:</strong> ${m.student_role}</p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">📚</span> Teaching & Learning Characteristics</h2>
+      <p>${m.characteristics}</p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">🌍</span> Language & Culture View</h2>
+      <p><strong>Language:</strong> ${m.language_view}</p>
+      <p><strong>Skills emphasis:</strong> ${m.skills}</p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">📝</span> Native Language & Evaluation</h2>
+      <p><strong>Native Language:</strong> ${m.native_lang}</p>
+      <p><strong>Evaluation:</strong> ${m.evaluation}</p>
+      <p><strong>Error Response:</strong> ${m.errors}</p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">⚡</span> Key Principles</h2>
+      <ul class="principles-list">
+        ${m.principles.map((p, i) => `<li><span class="num">${i+1}</span><span>${p}</span></li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="icon" style="color:white;">🛠</span> Techniques</h2>
+      <div class="techniques-grid">
+        ${m.techniques.map(t => `<span class="technique-tag">${t}</span>`).join('')}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section" id="quiz-${m.id}">
+    <div class="quiz-inner">
+      <div class="quiz-header">
+        <h2>Test Your Knowledge</h2>
+        <p>15 questions on ${m.name}</p>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+      <div id="quiz-body">
+        <div class="quiz-question-card" id="qcard">
+          <p class="q-number" id="q-num">Question 1 of 15</p>
+          <p class="q-text" id="q-text"></p>
+          <div class="options" id="q-opts"></div>
+          <div class="feedback" id="q-fb"></div>
+        </div>
+        <div class="quiz-nav">
+          <span class="quiz-score-display" id="score-disp">Score: 0 / 0</span>
+          <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+        </div>
+      </div>
+      <div class="quiz-result" id="quiz-result">
+        <div class="result-emoji" id="res-emoji"></div>
+        <div class="result-score" id="res-score"></div>
+        <div class="result-label" id="res-label"></div>
+        <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <button class="home-btn" onclick="closePage()">← Back to All Methods</button>
+  </div>
+  `;
+
+  document.getElementById('home-page').style.display = 'none';
+  page.style.display = 'block';
+  window.scrollTo(0, 0);
+
+  // init quiz
+  window._quiz = { data: m.quiz, idx: 0, score: 0, answered: false };
+  renderQuestion();
+}
+
+/* ════════════════════════════════════════════
+   QUIZ LOGIC
+════════════════════════════════════════════ */
+function renderQuestion() {
+  const { data, idx } = window._quiz;
+  const q = data[idx];
+  document.getElementById('q-num').textContent = `Question ${idx+1} of ${data.length}`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('prog').style.width = `${(idx / data.length) * 100}%`;
+  document.getElementById('q-fb').className = 'feedback';
+  document.getElementById('next-btn').classList.remove('visible');
+  updateScore();
+
+  const opts = document.getElementById('q-opts');
+  opts.innerHTML = '';
+  q.o.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = opt;
+    btn.onclick = () => answerQuestion(i);
+    opts.appendChild(btn);
+  });
+  window._quiz.answered = false;
+}
+
+function answerQuestion(chosen) {
+  if (window._quiz.answered) return;
+  window._quiz.answered = true;
+  const { data, idx } = window._quiz;
+  const q = data[idx];
+  const correct = q.a;
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+    if (i === chosen && chosen !== correct) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('q-fb');
+  if (chosen === correct) {
+    window._quiz.score++;
+    fb.textContent = '✓ Correct!';
+    fb.className = 'feedback show good';
+  } else {
+    fb.textContent = `✗ The correct answer is: "${q.o[correct]}"`;
+    fb.className = 'feedback show bad';
+  }
+  updateScore();
+  document.getElementById('next-btn').classList.add('visible');
+}
+
+function nextQuestion() {
+  window._quiz.idx++;
+  if (window._quiz.idx >= window._quiz.data.length) {
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  const { score, data } = window._quiz;
+  const pct = score / data.length;
+  document.getElementById('prog').style.width = '100%';
+  document.getElementById('quiz-body').style.display = 'none';
+  const res = document.getElementById('quiz-result');
+  res.style.display = 'block';
+  document.getElementById('res-score').textContent = `${score} / ${data.length}`;
+  if (pct >= 0.87) {
+    document.getElementById('res-emoji').textContent = '🏆';
+    document.getElementById('res-label').textContent = 'Outstanding! You mastered this method.';
+  } else if (pct >= 0.67) {
+    document.getElementById('res-emoji').textContent = '👍';
+    document.getElementById('res-label').textContent = 'Good work! Review a few points and you\'ll ace it.';
+  } else {
+    document.getElementById('res-emoji').textContent = '📚';
+    document.getElementById('res-label').textContent = 'Keep studying! Read through the summary again.';
+  }
+}
+
+function restartQuiz() {
+  window._quiz.idx = 0;
+  window._quiz.score = 0;
+  document.getElementById('quiz-body').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  renderQuestion();
+}
+
+function updateScore() {
+  document.getElementById('score-disp').textContent =
+    `Score: ${window._quiz.score} / ${window._quiz.idx}`;
+}
+
+function buildQuiz(m) { return m.quiz; }
+
+/* ════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════ */
+function closePage() {
+  document.getElementById('method-page').style.display = 'none';
+  document.getElementById('home-page').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
